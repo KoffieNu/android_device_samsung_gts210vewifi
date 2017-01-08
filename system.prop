@@ -1,0 +1,124 @@
+# ART
+#Optimal dex2oat threads for faster app installation
+ro.sys.fw.dex2oat_thread_count=4
+
+# Audio
+audio.dolby.ds2.enabled=true
+
+#Enable music through deep buffer
+audio.deep_buffer.media=true
+
+#Buffer size in kbytes for compress offload playback
+audio.offload.buffer.size.kb=64
+
+audio.offload.disable=1
+
+#enable dsp gapless mode by default
+audio.offload.gapless.enabled=true
+
+#multi offload
+audio.offload.multiple.enabled=false
+
+#Minimum duration for offload playback in secs
+audio.offload.min.duration.secs=30
+
+#Enable PCM offload by default
+audio.offload.pcm.16bit.enable=true
+audio.offload.pcm.24bit.enable=true
+
+#Enable audio track offload by default
+audio.offload.track.enable=false
+
+#Enable offload audio video playback by default
+audio.offload.video=true
+
+#enable downsampling for multi-channel content > 48Khz
+audio.playback.mch.downsample=true
+
+#enable pbe effects
+audio.safx.pbe.enabled=true
+
+persist.audio.dirac.speaker=true
+persist.audio.fluence.audiorec=false
+persist.audio.fluence.spk.mono=true
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=true
+persist.audio.fluence.speaker=true
+persist.sys.button_jack_profile=volume
+persist.sys.button_jack_switch=0
+ro.qc.sdk.audio.fluencetype=none
+ro.qc.sdk.audio.ssr=false
+tunnel.audio.encode=false
+
+#enable voice path for PCM VoIP by default
+use.voice.path.for.pcm.voip=true
+
+voice.conc.fallbackpath=deep-buffer
+voice.playback.conc.disabled=true
+voice.record.conc.disabled=false
+voice.voip.conc.disabled=true
+
+# Bluetooth
+bluetooth.hfp.client=1
+
+# Camera
+persist.camera.HAL3.enabled=1
+
+# Display
+debug.egl.hw=1
+debug.enable.sglscale=1
+debug.mdpcomp.logs=0
+debug.sf.hw=1
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.mdpcomp.enable=true
+
+ro.sf.lcd_density=320
+ro.sf.hwrotation=270
+
+#
+# system prop for opengles version
+#
+# 196609 is decimal for 0x30001 to report major/minor versions as 3/1
+ro.opengles.version=196609
+
+# Fingerprint
+persist.qfp=false
+
+# Factory Reset Protection
+ro.frp.pst=/dev/block/persistent
+
+# HWUI properties
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.gradient_cache_size=2
+ro.hwui.layer_cache_size=64
+ro.hwui.path_cache_size=16
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.shape_cache_size=4
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=4096
+ro.hwui.text_large_cache_height=2048
+ro.hwui.texture_cache_size=96
+
+# GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+
+# Media
+media.aac_51_output_enabled=true
+media.msm8956.version=1
+media.msm8956hw=1
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
+# Time services
+persist.timed.enable=true
+
+# WiFi
+wifi.interface=wlan0
