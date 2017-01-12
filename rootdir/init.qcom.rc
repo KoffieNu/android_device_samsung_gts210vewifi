@@ -33,6 +33,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on init
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8952.so|libcamera_shim.so
     start qfintverify
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -369,9 +370,6 @@ on property:sys.boot_completed=1
 
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
-
-on property:persist.radio.atfwd.start=false
-    stop atfwd
 
 # corefile limit
 on property:persist.debug.trace=1
@@ -788,11 +786,6 @@ on property:sys.boot_completed=1
     start qcom-post-boot
     start qti-testscripts
 
-service atfwd /system/bin/ATFWD-daemon
-    class late_start
-    user system
-    group system radio
-
 service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     class late_start
     user root
@@ -847,9 +840,8 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service charger /charger
+service charger /sbin/healthd -c
     class charger
-    group system graphics
     seclabel u:r:healthd:s0
 
 service ssr_diag /system/bin/ssr_diag
@@ -868,23 +860,6 @@ on property:persist.usb.hvdcp.detect=true
 
 on property:persist.usb.hvdcp.detect=false
     stop hvdcp
-
-service charger_monitor /system/bin/charger_monitor
-    user root
-    group root
-    disabled
-
-service qbcharger /charger -m 1
-    disabled
-    oneshot
-
-on property:sys.qbcharger.enable=true
-    write /sys/power/wake_lock QuickBoot
-    start qbcharger
-
-on property:sys.qbcharger.enable=false
-    write /sys/power/wake_unlock QuickBoot
-    stop qbcharger
 
 service diag_mdlog_start /system/bin/diag_mdlog
     class late_start

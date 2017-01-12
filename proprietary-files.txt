@@ -54,13 +54,50 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
+lib64/libarccamera.so
+lib64/libdmcFaceEngine.so
+lib64/libedmnativehelper.so
+lib64/libexifa.so
+lib64/libjpega.so
+lib64/libsecjpeginterface.so
+lib64/libsecimaging.so
 lib64/libsecnativefeature.so
-lib/libsecnativefeature.so
+lib64/libSEF.so
+lib64/libsccore.so
+lib64/libQjpeg.so
+lib64/libsomp.so
+lib64/libOpenCv.so
 lib/hw/camera.msm8952.so
+lib/libarccamera.so
+lib/libarcsoft_selfie_camera_lite.so
+lib/libcameraservice_cameramodule.so
+lib/libdmcFaceEngine.so
+lib/libdmcFaceEngine.so
+lib/libedmnativehelper.so
+lib/libexifa.so
+lib/libInteractiveShotEngine.so
+lib/libjpega.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so
+lib/libMP4Writer_native.so
+lib/libpalmMobileDetectorFull.so
 lib/libqomx_core.so
+lib/libquramresize.so
+lib/libsccore.so
+lib/libseccameracore.so
+lib/libsecface.so
+lib/libsecimaging.so
+lib/libsecimaging.so
+lib/libsecjpeginterface.so
+lib/libsecnativefeature.so
+lib/libSEF.so
+lib/lib_src_night_shot.so
+lib/libsupershot.so
+lib/libQjpeg.so
+lib/libsomp.so
+lib/libOpenCv.so
+lib/libviewSmoothingNative.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
@@ -326,7 +363,6 @@ bin/wcnss_service
 lib/hw/lights.msm8952.so
 lib64/hw/lights.msm8952.so
 
-bin/ATFWD-daemon
 bin/dpm
 bin/ftmdaemon
 bin/garden_app
@@ -670,4 +706,7 @@ vendor/lib64/mediadrm/libdrmclearkeyplugin.so
 vendor/lib64/mediadrm/libprmediadrmplugin.so
 vendor/lib64/qcdrm/playready/lib/libtzplayready_customer.so
 vendor/lib64/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
+
+lib/libsecril-client.so
+lib64/libsecril-client.so
 

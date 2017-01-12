@@ -46,10 +46,12 @@ TARGET_BOOTLOADER_BOARD_NAME := msm8952
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
+#BOARD_CUSTOM_BOOTIMG_MK := device/samsung/gts210vewifi/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 #BOARD_KERNEL_SEPARATED_DT := true
+#BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET --board FPRPG21W000KU --dt device/samsung/gts210vewifi/prebuilt/dt.img
 TARGET_PREBUILT_KERNEL := device/samsung/gts210vewifi/prebuilt/kernel
@@ -61,7 +63,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 #TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 #TARGET_KERNEL_SOURCE := kernel/samsung/msm8976
-TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := gts210vewifi
@@ -90,17 +91,9 @@ QCOM_BT_USE_SMD_TTY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Charger
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
-
-# Dex pre-opt to speed up initial boot
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
@@ -162,7 +155,6 @@ BOARD_USES_QCOM_HARDWARE := true
 #BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # SELinux
@@ -187,7 +179,7 @@ RECOVERY_TOUCHSCREEN_FLIP_Y := true
 TARGET_RECOVERY_FSTAB = device/samsung/gts210vewifi/recovery/root/recovery.fstab
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 else
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
 endif
 
 # Wifi
