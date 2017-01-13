@@ -54,12 +54,6 @@ on fs
 	chmod 0660 /dev/p3
 	chown system system /dev/p3
 
-# FINGERPRINT FRAMEWORK : starts fingerprintd
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group system
-
 # Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/raw_data
     chown system radio /sys/class/sensors/accelerometer_sensor/calibration
@@ -291,12 +285,12 @@ on boot
     chown system radio /sys/class/fingerprint/fingerprint/vendor
 
 #SLocation
-	service cellgeofenced /system/bin/cellgeofenced
-		class main
-		socket cellgeofence seqpacket 0660 gps system
-		user gps
-		group system inet
-
+service cellgeofenced /system/bin/cellgeofenced
+   class main
+   socket cellgeofence seqpacket 0660 gps system
+   user gps
+   group system inet
+   
 # SSWAP
 service swapon /sbin/sswap -s -f 2048
     class core
@@ -311,11 +305,18 @@ service ftm_ptt /system/bin/ftm_ptt -d
     group radio system
     disabled
 
+# FINGERPRINT FRAMEWORK : starts fingerprintd
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system
+    
 # SENSOR FRAMEWORK : starts fingerprintService
 service vcsFPService /system/bin/vcsFPService
     class late_start
     user system
     group system
+    
 
 # sem_daemon permission
     chown system system /efs/sec_efs/ssp_data
