@@ -49,9 +49,9 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
-#BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET --board FPRPG21W000KU --dt device/samsung/gts210vewifi/prebuilt/dt.img
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET --board FPRPG21W000KU --dt device/samsung/gts210vewifi/stock/dt.img
 #TARGET_PREBUILT_KERNEL := device/samsung/gts210vewifi/prebuilt/kernel
 BOARD_RAMDISK_OFFSET := 0x02000000
 TARGET_KERNEL_ARCH := arm64
@@ -61,7 +61,7 @@ TARGET_KERNEL_VARIANT_DEFCONFIG := msm8976_sec_gts210vewifi_eur_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8976
-TARGET_USES_UNCOMPRESSED_KERNEL := true
+#TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := gts210vewifi
